@@ -197,32 +197,35 @@
         </div>
 
         <div class="chat__area__input__area">
-            <form class="chat__form" action="">
-                <input class="chat__form--input" type="text" name="" id="" placeholder="メッセージ入力">
-                <button class="chat__form--button" type="submit">送信</button>
-            </form>
+            {!! Form::open() !!}
+            <div class="chat__form @if(!empty($errors->first('title'))) has-error @endif">
+                {!! Form::input('text', 'message', null, ['class' => 'chat__form--input', 'placeholder' => 'メッセージ入力']) !!}
+{{--                <span class="help-block">{{$errors->first('title')}}</span>--}}
+                {!! Form::submit('Add', ['class' => 'btn btn-success pull-right chat__form--button']) !!}
+            </div>
+            {!! Form::close() !!}
         </div>
     </div>
 
-{{--    ----------グループ作成用のダイヤログ---------------}}
-{{--    <div class="new__group__dialog" style="">--}}
-{{--        <div class="dialog__content">--}}
-{{--            <div class="dialog__content__input">--}}
-{{--                <input type="text" name="" id="">--}}
-{{--            </div>--}}
-{{--            <div class="dialog__content__btn">--}}
-{{--                <button disabled>キャンセル</button>--}}
-{{--                <input type="submit" value="作成">--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    ----------グループ作成用のダイヤログ---------------}}
+    {{--    <div class="new__group__dialog" style="">--}}
+    {{--        <div class="dialog__content">--}}
+    {{--            <div class="dialog__content__input">--}}
+    {{--                <input type="text" name="" id="">--}}
+    {{--            </div>--}}
+    {{--            <div class="dialog__content__btn">--}}
+    {{--                <button disabled>キャンセル</button>--}}
+    {{--                <input type="submit" value="作成">--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 @endsection
 
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script>
-    $(function(){ // 遅延処理
+    $(function () { // 遅延処理
         $('.plus__btn').click(
-            function() {
+            function () {
                 console.log('U');
                 $('.new__group__dialog').show();
                 // $.ajax({

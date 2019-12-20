@@ -54,9 +54,8 @@ html, body {
   border: none;
 }
 .chat__area__input__area .chat__form--button {
-  height: 40px;
-  width: 100px;
-  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 .new__group__dialog {
   height: 100%;
