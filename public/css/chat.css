@@ -1,5 +1,21 @@
 html, body {
   height: 100%;
+  position: relative;
+}
+.navbar-header {
+  display: flex;
+}
+.plus__btn {
+  padding: 15px 10px 5px 10px;
+  border-radius: 50%;
+  border: 1px solid #30b490;
+  background-color: #fff;
+  color: #30b490;
+  box-shadow: none;
+  margin-left: 100px;
+}
+.plus__btn--icon {
+  line-height: 0;
 }
 .chat__area {
   height: 100%;
@@ -41,6 +57,22 @@ html, body {
   height: 40px;
   width: 100px;
   margin-left: 20px;
+}
+.new__group__dialog {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: #4e555b;
+  opacity: 0.6;
+}
+.new__group__dialog .dialog__content {
+  height: 300px;
+  width: 500px;
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  background: #d9edf7;
 }
 /*——————–
  吹き出しを作る

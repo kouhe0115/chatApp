@@ -4,7 +4,14 @@
 
     <nav class="navbar navbar-fixed-left">
         <div class="container">
-            <div class="navbar-header navbar-left-header">GROUP</div>
+            <div class="navbar-header navbar-left-header">
+                <p>
+                    GROUP
+                </p>
+                <div class="plus__btn">
+                    <i class="fa fa-plus plus__btn--icon"></i>
+                </div>
+            </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav-left-list">
                     <li>
@@ -197,4 +204,39 @@
         </div>
     </div>
 
+{{--    ----------グループ作成用のダイヤログ---------------}}
+{{--    <div class="new__group__dialog" style="">--}}
+{{--        <div class="dialog__content">--}}
+{{--            <div class="dialog__content__input">--}}
+{{--                <input type="text" name="" id="">--}}
+{{--            </div>--}}
+{{--            <div class="dialog__content__btn">--}}
+{{--                <button disabled>キャンセル</button>--}}
+{{--                <input type="submit" value="作成">--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    $(function(){ // 遅延処理
+        $('.plus__btn').click(
+            function() {
+                console.log('U');
+                $('.new__group__dialog').show();
+                // $.ajax({
+                //     type: 'GET',
+                //     url: 'sample2.html', // url: は読み込むURLを表す
+                //     dataType: 'html', // 読み込むデータの種類を記入
+                // }).done(function (results) {
+                //     // 通信成功時の処理
+                //     $('#text').html(results);
+                // }).fail(function (err) {
+                //     // 通信失敗時の処理
+                //     alert('ファイルの取得に失敗しました。');
+                // });
+            }
+        );
+    });
+</script>

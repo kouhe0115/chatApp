@@ -60,6 +60,7 @@
     </div>
 </nav>
 
+
 @yield('content')
 
 <!-- Scripts -->
