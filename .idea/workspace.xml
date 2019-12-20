@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/scss/chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/chat.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/common/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/common/user.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,6 +107,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/panique/laravel-sass" />
       <path value="$PROJECT_DIR$/vendor/leafo/scssphp" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VBW2RMFu7166FPz97uxUMyp3Rm" />
