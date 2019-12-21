@@ -5,7 +5,7 @@ namespace App\Repositories\User;
 use App\Models\Group;
 use App\User;
 
-class GroupRepository
+class GroupRepository implements GroupRepositoryImterface
 {
     /**
      * @var User

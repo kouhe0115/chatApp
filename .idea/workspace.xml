@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/User/ChatRepositoryImterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/User/GroupRepositoryImterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/ChatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/User/ChatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/User/ChatRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/User/GroupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/User/GroupRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/User/Group/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/Group/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/User/Group/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/Group/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,10 +196,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1576941981241" />
-    <state x="586" y="221" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1576954721974">
+    <state x="586" y="221" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1576956199736">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="586" y="221" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.0.1680.1050@0.0.1680.1050" timestamp="1576954721974" />
+    <state x="586" y="221" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.0.1680.1050@0.0.1680.1050" timestamp="1576956199736" />
     <state x="526" y="348" key="NewPhpClassDialog" timestamp="1576826724013">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
+use App\User;
 use App\Http\Controllers\Controller;
 use App\Repositories\User\GroupRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
 
 class GroupController extends Controller
 {

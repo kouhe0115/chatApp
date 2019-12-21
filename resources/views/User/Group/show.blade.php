@@ -9,7 +9,7 @@
                 <p>
                     GROUP
                 </p>
-                <a href="{{ route('group.create') }}", class="plus__btn">
+                <a href="{{ route('group.create') }}" , class="plus__btn">
                     <i class="fa fa-plus plus__btn--icon"></i>
                 </a>
             </div>
@@ -30,12 +30,12 @@
         <div class="chat__area__header">
             <p class="chat__area__header--group__name">Group Name : {{ $group->name }}</p>
 
-                <p class="chat__area__header--group__member">Group Member :
-                    @foreach($groupUsers as $user)
-                        {{ $user->name }}
-                    @endforeach
+            <p class="chat__area__header--group__member">Group Member :
+                @foreach($groupUsers as $user)
+                    {{ $user->name }}
+                @endforeach
 
-                </p>
+            </p>
 
         </div>
 
@@ -75,8 +75,6 @@
             {!! Form::open(['route' => ['chat.store', $group->id]]) !!}
             <div class="chat__form @if(!empty($errors->first('title'))) has-error @endif">
                 {!! Form::input('text', 'message', null, ['class' => 'chat__form--input', 'placeholder' => 'メッセージ入力']) !!}
-{{--                {!! Form::hidden('group_id', $group->id) !!}--}}
-                {{--                <span class="help-block">{{$errors->first('title')}}</span>--}}
                 {!! Form::submit('Add', ['class' => 'btn btn-success pull-right chat__form--button']) !!}
             </div>
             {!! Form::close() !!}
