@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('User.index');
+Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+//    Route::get('/', function () {
+//        return view('User.index');
+//    });
+
+    Auth::routes();
+
+    Route::post('/store', 'ChatController@store')->name('chat.store');
+
+    Route::get('/group', 'GroupController@index')->name('group.index');
+    Route::get('/group/{id}/chat', 'GroupController@show')->name('group.show');
+    Route::get('/group/create', 'GroupController@create')->name('group.create');
+    Route::post('/group/store', 'GroupController@store')->name('group.store');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

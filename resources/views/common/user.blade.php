@@ -39,8 +39,7 @@
             <div class="nav navbar-nav navbar-right nav-user">
                 <div class="dropdown">
                     <a class="user-name-box dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{--                        <img src="{{ Auth::user()->avatar }}">&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }}--}}
-                        画像&user_name
+                        @if(!is_null(Auth::user()->avatar))<img src="{{ Auth::user()->avatar }}">@endif&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>

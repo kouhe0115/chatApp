@@ -8,19 +8,18 @@ html, body {
 }
 
 .plus__btn {
-    padding: 15px 10px 5px 10px;
+    padding: 5px 10px;
     border-radius: 50%;
     border: 1px solid #30B490;
     background-color: #fff;
     color: #30b490;
     box-shadow: none;
     margin-left: 100px;
+    cursor: pointer;
 
     &--icon {
         line-height: 0;
-
     }
-
 }
 
 
@@ -74,24 +73,7 @@ html, body {
     }
 }
 
-.new__group__dialog {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background: #4e555b;
-    opacity: 0.6;
 
-    .dialog__content {
-        height: 300px;
-        width: 500px;
-        position: absolute;
-        top: 35%;
-        left: 30%;
-        background: #d9edf7;
-
-    }
-}
 
 
 /*——————–
@@ -208,4 +190,28 @@ p.kaiwa-text:last-child {
     clear: both;
     content: "";
     display: block;
+}
+
+.group__create__form {
+    margin-left: 400px;
+    width: 500px;
+    text-align: center;
+    margin-top: 300px;
+    border: 1px solid;
+    padding: 30px;
+
+    &__content {
+
+        &--checkbox {
+            margin: 10px;
+
+            &--input {
+                margin-left: 5px;
+            }
+        }
+
+        &--button {
+            float: none !important;
+        }
+    }
 }

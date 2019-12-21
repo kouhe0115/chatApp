@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChatGroupTable extends Migration
+class AddGroupIdToChatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateChatGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_user', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
+        Schema::table('chats', function (Blueprint $table) {
             $table->integer('group_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('group_id')->references('id')->on('groups');
         });
     }
@@ -29,6 +27,8 @@ class CreateChatGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chat_group');
+        Schema::table('chats', function (Blueprint $table) {
+            //
+        });
     }
 }
