@@ -19,7 +19,7 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
 
     Auth::routes();
 
-    Route::post('/store', 'ChatController@store')->name('chat.store');
+    Route::post('/group/{id}/chat/store', 'ChatController@store')->name('chat.store');
 
     Route::get('/group', 'GroupController@index')->name('group.index');
     Route::get('/group/{id}/chat', 'GroupController@show')->name('group.show');

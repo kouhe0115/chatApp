@@ -45,7 +45,7 @@ class GroupRepository
      * @param $id
      * @return mixed
      */
-    public function fetchGroupByUserId($id)
+    public function fetchGroupUsersByGroupId($id)
     {
         return $this->group->find($id)->users->all();
     }
@@ -66,13 +66,16 @@ class GroupRepository
         }
     }
 
-    public function registerGroup($attribute)
+    /**
+     * グループの作成
+     *
+     * @param $attribute
+     * @param $userIds
+     */
+    public function registerGroup($attribute, $userIds)
     {
-        $name = $attribute['name'];
-
-        $userId = $attribute['user_id'];
         $this->group->create(array(
-            'name' => $name,
-        ))->users()->attach($userId);
+            'name' => $attribute['name'],
+        ))->users()->attach($userIds);
     }
 }

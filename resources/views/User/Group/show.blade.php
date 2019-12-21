@@ -72,10 +72,10 @@
         </div>
 
         <div class="chat__area__input__area">
-            {!! Form::open(['route' => 'chat.store']) !!}
+            {!! Form::open(['route' => ['chat.store', $group->id]]) !!}
             <div class="chat__form @if(!empty($errors->first('title'))) has-error @endif">
                 {!! Form::input('text', 'message', null, ['class' => 'chat__form--input', 'placeholder' => 'メッセージ入力']) !!}
-                {!! Form::hidden('group_id', $group->id) !!}
+{{--                {!! Form::hidden('group_id', $group->id) !!}--}}
                 {{--                <span class="help-block">{{$errors->first('title')}}</span>--}}
                 {!! Form::submit('Add', ['class' => 'btn btn-success pull-right chat__form--button']) !!}
             </div>

@@ -13,7 +13,8 @@ class GroupController extends Controller
     private $groupRepository;
 
     /**
-     * ChatController constructor.
+     * GroupController constructor.
+     * @param GroupRepository $groupRepository
      */
     public function __construct(GroupRepository $groupRepository)
     {
@@ -39,13 +40,17 @@ class GroupController extends Controller
     public function show($id)
     {
         $groups = $this->groupRepository->fetchAllGroupByUserId(Auth::id());
-        $groupUsers = $this->groupRepository->fetchGroupByUserId($id);
+        $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
         $groupUserChat = $this->groupRepository->fetchGroupUsersMessage($id, $groupUsers);
 
         return view('User.Group.show', compact('groupUserChat','groups', 'groupUsers'));
     }
 
-
+    /**
+     * グループ作成ページの表示
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $users = User::all();
@@ -61,8 +66,8 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->all();
-        $inputs['user_id'] = array_merge($inputs['user_id'], array(Auth::id()));
-        $this->groupRepository->registerGroup($inputs);
+        $userIds = array_merge($inputs['user_id'], array(Auth::id()));
+        $this->groupRepository->registerGroup($inputs, $userIds);
 
         return redirect()->action('User\GroupController@index');
     }

@@ -4,12 +4,16 @@ namespace App\Repositories\User;
 
 use App\Models\Chat;
 
-class ChatRepository
+class ChatRepository implements ChatRepositoryImterface
 {
+    /**
+     * @var Chat
+     */
     private $chat;
 
     /**
      * ChatRepository constructor.
+     * @param Chat $chat
      */
     public function __construct(Chat $chat)
     {
@@ -23,6 +27,10 @@ class ChatRepository
      */
     public function registerMessage($attribute)
     {
-        $this->chat->create($attribute);
+        $this->chat->create([
+            'user_id' => $attribute['user_id'],
+            'group_id' => $attribute['group_id'],
+            'message' => $attribute['message'],
+        ]);
     }
 }
