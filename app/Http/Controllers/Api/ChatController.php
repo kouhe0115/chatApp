@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chat;
 use App\Repositories\User\ChatRepositoryImterface;
 use App\Repositories\User\GroupRepositoryImterface;
 use Illuminate\Http\Request;
@@ -10,24 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
-//    public function test(Request $request)
-//    {
-//        $message = $request->input('message');
-//
-//        $dataArray = array(
-//            'message'   => $message
-//        );
-//
-//        $returnData = json_encode($dataArray);
-//        dd($returnData);
-//        return $returnData;
-//    }
-
     /**
      * @var ChatRepositoryImterface
      */
     private $chatRepository;
 
+    /**
+     * @var GroupRepositoryImterface
+     */
     private $groupRepository;
 
     /**
@@ -44,10 +35,16 @@ class ChatController extends Controller
 
     public function show(Request $request, $id)
     {
+        $messageId  = $request->input('message_id');
         $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
-        $groupUserChat = $this->groupRepository->fetchGroupUsersMessage($id, $groupUsers);
 
-        return response()->json($groupUserChat);
+        $a = [];
+        foreach ($groupUsers as $gu) {
+            foreach($gu->chats as $guc) {
+                return $a =  $guc->where('group_id', $id)->where('id', '>', $messageId)->with('user')->get();
+            }
+        }
+        return $a->toJson();
     }
 
     /**
@@ -57,16 +54,13 @@ class ChatController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $dataArray = array(
-            'message'   => $request->input('message'),
+        $ins = Chat::create([
             'user_id' => Auth::id(),
             'group_id' => $id,
-        );
+            'message'   => $request->input('message'),
+        ]);
 
-        $this->chatRepository->registerMessage($dataArray);
-
-
-        return response()->json($dataArray);
+        return response()->json($ins);
     }
 }
 
