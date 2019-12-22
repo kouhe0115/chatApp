@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\User\ChatRepositoryImterface;
+use App\Repositories\User\GroupRepositoryImterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,14 +28,26 @@ class ChatController extends Controller
      */
     private $chatRepository;
 
+    private $groupRepository;
+
     /**
      * ChatController constructor.
      * @param ChatRepositoryImterface $chatRepository
+     * @param GroupRepositoryImterface $groupRepository
      */
-    public function __construct(ChatRepositoryImterface $chatRepository)
+    public function __construct(ChatRepositoryImterface $chatRepository, GroupRepositoryImterface $groupRepository)
     {
         $this->middleware('auth');
         $this->chatRepository = $chatRepository;
+        $this->groupRepository = $groupRepository;
+    }
+
+    public function show(Request $request, $id)
+    {
+        $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
+        $groupUserChat = $this->groupRepository->fetchGroupUsersMessage($id, $groupUsers);
+
+        return response()->json($groupUserChat);
     }
 
     /**
@@ -54,7 +67,6 @@ class ChatController extends Controller
 
 
         return response()->json($dataArray);
-
     }
 }
 

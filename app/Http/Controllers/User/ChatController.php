@@ -32,6 +32,7 @@ class ChatController extends Controller
      */
     public function store(Request $request, $id)
     {
+        dd('U');
         $inputs = $request->only('message', 'group_id');
         $inputs['user_id'] = Auth::id();
         $inputs['group_id'] = $id;

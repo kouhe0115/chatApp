@@ -37,15 +37,8 @@ class GroupController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
-
-//        $request->all();                  // ['user' => '[userの入力値]', 'passwd' => '[passwdの入力値]']
-//        dd($request->header('content-type')); // 'application/json'
-//
-//        $request->isJson();               // true
-
-
         $groups = $this->groupRepository->fetchAllGroupByUserId(Auth::id());
         $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
         $groupUserChat = $this->groupRepository->fetchGroupUsersMessage($id, $groupUsers);

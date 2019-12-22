@@ -30,3 +30,5 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
 
     Route::get('/group/{id}/chat/store', 'User\GroupController@show');
     Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
+
+    Route::get('/group/{id}/chat/stores', 'Api\ChatController@show');

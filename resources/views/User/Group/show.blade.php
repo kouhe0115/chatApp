@@ -43,7 +43,7 @@
             @if(!is_null($groupUserChat))
                 @foreach($groupUserChat as $guc)
                     @if($guc->user_id === Auth::id())
-                        <div class="kaiwa auth__user "data_id = "{{ $guc->id }}">
+                        <div class="kaiwa auth__user" data_id = "{{ $guc->id }}">
                             <figure class="kaiwa-img-left">
                                 <img src="{{ $guc->user->avatar }}" alt="no-img2" class="user__image">
                             </figure>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     @else
-                        <div class="kaiwa">
+                        <div class="kaiwa" data_id = "{{ $guc->id }}">
                             <figure class="kaiwa-img-right">
                                 <img src="{{ $guc->user->avatar }}" alt="no-img2">
                                 <figcaption class="kaiwa-img-description">
