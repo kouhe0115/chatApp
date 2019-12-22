@@ -14,6 +14,7 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
     <!-- Scripts -->
+    <link href="{{ asset('js/message.js') }}" rel="javascript">
 </head>
 
 <body>
@@ -65,5 +66,6 @@
 <!-- Scripts -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/message.js') }}"></script>
 </body>
 </html>

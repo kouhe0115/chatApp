@@ -19,10 +19,14 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
 
     Auth::routes();
 
-    Route::post('/group/{id}/chat/store', 'ChatController@store')->name('chat.store');
+//    Route::post('/group/{id}/chat/store', 'ChatController@store')->name('chat.store');
+//    Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
 
     Route::get('/group', 'GroupController@index')->name('group.index');
     Route::get('/group/{id}/chat', 'GroupController@show')->name('group.show');
     Route::get('/group/create', 'GroupController@create')->name('group.create');
     Route::post('/group/store', 'GroupController@store')->name('group.store');
 });
+
+    Route::get('/group/{id}/chat/store', 'User\GroupController@show');
+    Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');

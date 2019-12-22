@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+//Route::post('store', 'Api\ChatController@store')->name('api.store');
+//Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');

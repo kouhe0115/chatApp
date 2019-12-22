@@ -43,9 +43,9 @@
             @if(!is_null($groupUserChat))
                 @foreach($groupUserChat as $guc)
                     @if($guc->user_id === Auth::id())
-                        <div class="kaiwa auth__user">
+                        <div class="kaiwa auth__user "data_id = "{{ $guc->id }}">
                             <figure class="kaiwa-img-left">
-                                <img src="{{ $guc->user->avatar }}" alt="no-img2">
+                                <img src="{{ $guc->user->avatar }}" alt="no-img2" class="user__image">
                             </figure>
                             <div class="kaiwa-text-right">
                                 <p class="kaiwa-text">
@@ -72,9 +72,10 @@
         </div>
 
         <div class="chat__area__input__area">
-            {!! Form::open(['route' => ['chat.store', $group->id]]) !!}
+{{--            {!! Form::open(['route' => ['chat.store', $group->id]]) !!}--}}
+            {!! Form::open(['route' => ['api.store', $group->id],'id' => 'new__message']) !!}
             <div class="chat__form @if(!empty($errors->first('title'))) has-error @endif">
-                {!! Form::input('text', 'message', null, ['class' => 'chat__form--input', 'placeholder' => 'メッセージ入力']) !!}
+                {!! Form::input('text', 'message', null, ['class' => 'chat__form--input', 'placeholder' => 'メッセージ入力', 'id' => 'chat__form--input']) !!}
                 {!! Form::submit('Add', ['class' => 'btn btn-success pull-right chat__form--button']) !!}
             </div>
             {!! Form::close() !!}
