@@ -72,7 +72,7 @@
 {{--                        <p class='chat-group-user__name'>--}}
 {{--                            = users.user.name--}}
 {{--                        </p>--}}
-                        <div class="group__create__form__content--checkbox">
+                        <div class="group__create__form__content--checkbox add__users">
 {{--                            @foreach($users as $user)--}}
 {{--                                @if($user->id !== Auth::id())--}}
 {{--                                    <div class="user__info">--}}

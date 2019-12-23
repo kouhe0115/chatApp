@@ -75,8 +75,6 @@ class ChatController extends Controller
 
     public function getSearchUsers(Request $request)
     {
-//        $user = $this->user->all();
-
         $input = $request->input('word');
         $users = $this->user->where('name', 'LIKE', "%{$input}%")->get();
         return $users->toJson();

@@ -3,11 +3,11 @@ $(function () {
 
     function appendUser(user) {
         let html = `<div class="user__info">
-                        <img src="${user.avatar}" alt="no-img2" class="user__image">
+                        <img src="${user.avatar}" alt="no-img2" class="user__image" data-user-img="${user.avatar}">
 <!--                        {!! Form::input('checkbox', 'user_id[]', ${user.id}, ['class' => 'group__create__form__content&#45;&#45;checkbox&#45;&#45;input']) !!}-->
-                        <input type="checkbox" name="user_id[]" value="${user.id}", class="group__create__form__content--checkbox--input">
+                        <input type="checkbox" class="group__create__form__content--checkbox--input" data-user-id="${user.id}">
                         <label class="group__create__form__content--checkbox--inputs"
-                               for="customCheck1">${user.name}</label>
+                               for="customCheck1" data-user-name="${user.name}">${user.name}</label>
                     </div>`
         search_list.append(html);
     };
@@ -17,12 +17,12 @@ $(function () {
         search_list.append(html);
     };
 
-    function buildHTML(id, name) {
+    function buildHTML(id, name, img) {
         let html = `<div class="user__info">
-                        <img src="{{ $user->avatar }}" alt="no-img2" class="user__image">
-
+                        <img src="${img}" alt="no-img2" class="user__image">
+                        <input type="hidden" name="user_id[]" value="${id}", class="group__create__form__content--checkbox--input" data-user-id="${id}">
                         <label class="group__create__form__content--checkbox--inputs"
-                               for="customCheck1">{{ $user->name }}</label>
+                               for="customCheck1">${name}</label>
                     </div>`
         return html
     }
@@ -43,27 +43,26 @@ $(function () {
                     users.forEach(function (user) {
                         appendUser(user);
                     });
+                } else {
+                    appendNoUser("一致するユーザーはいません")
                 }
-            //     } else {
-            //         appendNoUser("一致するユーザーはいません")
-            //     }
             })
-            // .fail(function() {
-            //     alert('ユーザー検索に失敗しました')
-            // });
+            .fail(function() {
+                alert('ユーザー検索に失敗しました')
+            });
     });
 
     $(".user-search-result").on('click','.group__create__form__content--checkbox--input', function() {
+        console.log($(this))
         let id = $(this).data('user-id');
-        let name = $(this).data('user-name');
-        let insertHTML = buildHTML(id, name);
-        $('.chat-group-users').append(insertHTML);
-        $('#user-search-field').val('');
-        $(this).parent('.chat-group-user').remove();
+        let name = $('.group__create__form__content--checkbox--inputs').data('user-name');
+        let img = $('.user__image').data('user-img');
+        // let insertHTML = buildHTML(id, name,img);
+        $('.add__users').append(buildHTML(id, name,img));
     });
 
-    $(".chat-group-users").on('click', '.user-search-remove', function() {
-        let id = $(this).data('user-id');
-        $(`#chat-group-user-${id}`).remove();
-    });
+    // $(".chat-group-users").on('click', '.user-search-remove', function() {
+    //     let id = $(this).data('user-id');
+    //     $(`#chat-group-user-${id}`).remove();
+    // });
 });
