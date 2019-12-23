@@ -28,3 +28,5 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
     Route::get('/group/{id}/chat/show', 'Api\ChatController@show');
 
     Route::get('/user/id', 'Api\ChatController@getUserId');
+
+    Route::get('/users', 'Api\ChatController@getSearchUsers');

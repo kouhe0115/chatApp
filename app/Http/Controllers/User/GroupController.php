@@ -54,7 +54,8 @@ class GroupController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('User.Group.create', compact('users'));
+        $groups = $this->groupRepository->fetchAllGroupByUserId(Auth::id());
+        return view('User.Group.create', compact('users', 'groups'));
     }
 
     /**

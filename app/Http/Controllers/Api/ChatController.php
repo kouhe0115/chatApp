@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Chat;
 use App\Repositories\User\ChatRepositoryImterface;
 use App\Repositories\User\GroupRepositoryImterface;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,16 +22,20 @@ class ChatController extends Controller
      */
     private $groupRepository;
 
+    private $user;
+
     /**
      * ChatController constructor.
      * @param ChatRepositoryImterface $chatRepository
      * @param GroupRepositoryImterface $groupRepository
+     * @param User $user
      */
-    public function __construct(ChatRepositoryImterface $chatRepository, GroupRepositoryImterface $groupRepository)
+    public function __construct(ChatRepositoryImterface $chatRepository, GroupRepositoryImterface $groupRepository, User $user)
     {
         $this->middleware('auth');
         $this->chatRepository = $chatRepository;
         $this->groupRepository = $groupRepository;
+        $this->user = $user;
     }
 
     public function show(Request $request, $id)
@@ -66,6 +71,15 @@ class ChatController extends Controller
     public function getUserId()
     {
         return Auth::id();
+    }
+
+    public function getSearchUsers(Request $request)
+    {
+//        $user = $this->user->all();
+
+        $input = $request->input('word');
+        $users = $this->user->where('name', 'LIKE', "%{$input}%")->get();
+        return $users->toJson();
     }
 }
 
