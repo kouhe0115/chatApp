@@ -28,11 +28,11 @@ class ChatController extends Controller
      * メッセージ作成
      *
      * @param Request $request
+     * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, $id)
     {
-        dd('U');
         $inputs = $request->only('message', 'group_id');
         $inputs['user_id'] = Auth::id();
         $inputs['group_id'] = $id;

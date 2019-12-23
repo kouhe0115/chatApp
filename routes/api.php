@@ -19,3 +19,5 @@ use Illuminate\Http\Request;
 
 //Route::post('store', 'Api\ChatController@store')->name('api.store');
 //Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
+
+//Route::get('/user/id', 'Api\ChatController@getUserId');

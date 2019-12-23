@@ -13,14 +13,8 @@
 
 Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-//    Route::get('/', function () {
-//        return view('User.index');
-//    });
 
     Auth::routes();
-
-//    Route::post('/group/{id}/chat/store', 'ChatController@store')->name('chat.store');
-//    Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
 
     Route::get('/group', 'GroupController@index')->name('group.index');
     Route::get('/group/{id}/chat', 'GroupController@show')->name('group.show');
@@ -31,4 +25,6 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
     Route::get('/group/{id}/chat/store', 'User\GroupController@show');
     Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
 
-    Route::get('/group/{id}/chat/stores', 'Api\ChatController@show');
+    Route::get('/group/{id}/chat/show', 'Api\ChatController@show');
+
+    Route::get('/user/id', 'Api\ChatController@getUserId');

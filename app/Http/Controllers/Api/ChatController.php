@@ -62,5 +62,10 @@ class ChatController extends Controller
 
         return response()->json($ins);
     }
+
+    public function getUserId()
+    {
+        return Auth::id();
+    }
 }
 
