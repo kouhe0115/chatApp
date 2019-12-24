@@ -53,7 +53,6 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $users = User::all();
         $groups = $this->groupRepository->fetchAllGroupByUserId(Auth::id());
         return view('User.Group.create', compact('users', 'groups'));
     }
@@ -67,7 +66,8 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->all();
-        $userIds = array_merge($inputs['user_id'], array(Auth::id()));
+        $userIds = array_unique(array_merge($inputs['user_id'], array(Auth::id())));
+//        dd(array_unique($userIds));
         $this->groupRepository->registerGroup($inputs, $userIds);
 
         return redirect()->action('User\GroupController@index');
