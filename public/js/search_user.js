@@ -12,43 +12,50 @@ $(function () {
     };
 
     function appendNoUser(text) {
-        // let html = ``
         search_list.append(text);
     };
 
-    $("#user-search-field").on("keyup", function() {
+    function searchUser() {
         let word = $("#user-search-field").val();
-        console.log(word)
         $.ajax({
             type: 'GET',
             url: '/users',
-            data: {word : word},
-            dataType: 'json'
-        })
-            .done(function(users) {
+            data: {word: word},
+            dataType: 'json',
+
+            success: function (users) {
                 console.log(users)
                 $(".user-search-result").empty();
                 if (users.length !== 0 && word.length !== 0) {
                     users.forEach(function (user) {
                         appendUser(user);
-                    });
+                    })
                 } else {
                     appendNoUser("一致するユーザーはいません")
                 }
-            })
-            .fail(function() {
+            },
+            error: function () {
                 alert('ユーザー検索に失敗しました')
-            });
-    });
+            }
+        });
+    }
+
+
 
     $(".user-search-result").on('click','.group__create__form__content--checkbox--input', function() {
         let id = $(this).data('user-id');
         let userClone = $(`#${id}`).clone(true);
         $('.add__users').append(userClone);
+        $(`#${id}`).remove();
+
     });
 
-    $(".user-search-result").on('click', '.group__create__form__content--checkbox--input', function() {
+    $(".chat-group-users").on('click', '.group__create__form__content--checkbox--input', function() {
         let id = $(this).data('user-id');
         $(`#${id}`).remove();
+    });
+
+    $("#user-search-field").on("keyup", function() {
+        searchUser()
     });
 });

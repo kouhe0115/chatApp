@@ -44,7 +44,6 @@ $(function () {
             dataType: 'json',
 
             success: function (data) {
-                console.log(data)
                 userId = data
             },
             error: function () {
@@ -76,7 +75,8 @@ $(function () {
         }
     }
 
-    function addMessage(message) {
+    function addMessage() {
+        let message = document.getElementById('chat__form--input').value;
         $.ajax({
             url: 'chat/store',
             data: {
@@ -105,8 +105,7 @@ $(function () {
 
     $('#new__message').on('submit', function (e) {
         e.preventDefault();
-        let message = document.getElementById('chat__form--input').value;
-        addMessage(message)
+        addMessage()
     });
 
     setInterval(autoLord, updateTime);
