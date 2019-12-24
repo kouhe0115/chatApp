@@ -89,7 +89,6 @@ $(function () {
             dataType: 'json',
 
             success: function (data) {
-                console.log(data)
                 let src = $('.user__image').attr('src');
                 let html = postbuildHTML(data, src);
                 $('.chat__area__content').append(html);

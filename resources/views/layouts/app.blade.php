@@ -19,7 +19,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/use.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>

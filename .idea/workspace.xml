@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/search_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/search_user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/common/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/common/user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,10 +219,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1576989536369" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1577150448327">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1577162509371">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1577150448327" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.959@0.23.1680.959" timestamp="1576761394504" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1577162509371" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.959@0.23.1680.959" timestamp="1577162470882" />
   </component>
 </project>

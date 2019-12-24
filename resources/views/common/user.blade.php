@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand" href="{{ route('group.index') }}">
                 CHAT APP
             </a>
         </div>
@@ -64,7 +64,7 @@
 @yield('content')
 
 <!-- Scripts -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+{{--<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>--}}
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/message.js') }}"></script>
 <script src="{{ asset('js/search_user.js') }}"></script>
