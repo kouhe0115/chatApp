@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
@@ -78,5 +79,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/user_image.js') }}"></script>
+
 </body>
 </html>

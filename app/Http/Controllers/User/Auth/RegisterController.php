@@ -30,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
 //    protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = '/';
+    protected $redirectTo = '/group';
 
     /**
      * Create a new controller instance.
@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'avatar' => ['file', 'image', 'mimes:jpeg,png']
         ]);
     }
 
@@ -65,12 +66,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (isset($data['avatar'])) {
+            $img = $data['avatar']->store('public/cover');
+        } else {
+            $img = asset('storage/cover/' . 'no_image.jpg');
+        }
+
+        $img = basename($img);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => $img,
         ]);
     }
+
+//$filename = $request->file->store('public/cover');
+//$user = User::find(Auth::user()->id);
+//$user->cover_filename = basename($filename);
+//$user->save();
+//return redirect('/profile');
 
     /**
      * Show the application registration form.
@@ -79,6 +94,6 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('user.auth.register');
+        return view('User.auth.register');
     }
 }

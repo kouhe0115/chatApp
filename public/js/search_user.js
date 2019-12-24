@@ -24,7 +24,6 @@ $(function () {
             dataType: 'json',
 
             success: function (users) {
-                console.log(users)
                 $(".user-search-result").empty();
                 if (users.length !== 0 && word.length !== 0) {
                     users.forEach(function (user) {
