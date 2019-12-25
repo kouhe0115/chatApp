@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <nav class="navbar navbar-fixed-left">
         <div class="container">
             <div class="navbar-header navbar-left-header">
@@ -43,9 +42,10 @@
             @if(!is_null($groupUserChat))
                 @foreach($groupUserChat as $guc)
                     @if($guc->user_id === Auth::id())
-                        <div class="kaiwa auth__user" data_id = "{{ $guc->id }}">
+                        <div class="kaiwa auth__user" data_id="{{ $guc->id }}">
                             <figure class="kaiwa-img-left">
-                                <img src="{{ asset('storage/cover/' . $guc->user->avatar) }}" alt="no-img2" class="user__image">
+                                <img src="{{ asset('storage/cover/' . $guc->avatar) }}" alt="no-img2"
+                                     class="user__image">
                             </figure>
                             <div class="kaiwa-text-right">
                                 <p class="kaiwa-text">
@@ -54,9 +54,10 @@
                             </div>
                         </div>
                     @else
-                        <div class="kaiwa" data_id = "{{ $guc->id }}">
+                        <div class="kaiwa" data_id="{{ $guc->id }}">
                             <figure class="kaiwa-img-right">
-                                <img src="{{ asset('storage/cover/' . $guc->user->avatar) }}" alt="no-img2" class="user__image">
+                                <img src="{{ asset('storage/cover/' . $guc->avatar) }}" alt="no-img2"
+                                     class="user__image">
                             </figure>
                             <div class="kaiwa-text-left">
                                 <p class="kaiwa-text">
@@ -69,8 +70,9 @@
             @endif
         </div>
 
+        <div class="new__message"></div>
+
         <div class="chat__area__input__area">
-{{--            {!! Form::open(['route' => ['chat.store', $group->id]]) !!}--}}
             {!! Form::open(['route' => ['api.store', $group->id],'id' => 'new__message']) !!}
             <div class="chat__form @if(!empty($errors->first('title'))) has-error @endif">
                 {!! Form::input('text', 'message', null, ['class' => 'chat__form--input', 'placeholder' => 'メッセージ入力', 'id' => 'chat__form--input']) !!}

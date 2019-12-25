@@ -4,7 +4,7 @@ $(function () {
     let updateTime = 5000;
 
     function postbuildHTML(data, src) {
-        let html = `<div class="kaiwa auth__user" data_id = "${ data.id }">
+        let html = `<div class="kaiwa auth__user" data_id = "${data.id}">
                         <figure class="kaiwa-img-left">
                             <img src="${src}" alt="no-img2" class="user__image">
                         </figure>
@@ -18,7 +18,7 @@ $(function () {
     }
 
     function lordbuildHTML(data) {
-        let html = `<div class="kaiwa" data_id = "${ data.id }">
+        let html = `<div class="kaiwa" data_id = "${data.id}">
                         <figure class="kaiwa-img-right">
                             <img src="${data.avatar}" alt="no-img2">
                             <figcaption class="kaiwa-img-description">
@@ -30,6 +30,11 @@ $(function () {
                             </p>
                         </div>
                     </div>`
+        return html;
+    }
+
+    function newMessageHtml(data) {
+        let html = `<p class="new__message__text">${data.message}</p>`
         return html;
     }
 
@@ -62,14 +67,18 @@ $(function () {
                 dataType: 'json',
 
                 success: function (data) {
-                    if(data.length !== 0){
-                        $.each(data, function(i, data){
+                    if (data.length !== 0) {
+                        $.each(data, function (i, data) {
                             $('.chat__area__content').append(lordbuildHTML(data));
+                            $('.new__message').append(newMessageHtml(data));
+                            setTimeout(function(){
+                                $('.new__message').remove();
+                            },3000);
                         });
                     }
                 },
                 error: function () {
-                    alert("Ajax通信エラー?");
+                    alert("通信エラー?");
                 }
             });
         }
@@ -89,7 +98,7 @@ $(function () {
             dataType: 'json',
 
             success: function (data) {
-                let src = data.avatar;
+                let src = data.user.avatar;
                 let html = postbuildHTML(data, src);
                 $('.chat__area__content').append(html);
                 $('.chat__form--input').val('');
@@ -97,7 +106,7 @@ $(function () {
                 $('.chat__form--button').prop('disabled', false);
             },
             error: function () {
-                alert('Ajaxリクエスト失敗');
+                alert('リクエスト失敗');
             }
         });
     }
@@ -109,7 +118,7 @@ $(function () {
 
     setInterval(autoLord, updateTime);
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         scroll_view()
         getUserId()
     });

@@ -40,7 +40,8 @@
             <div class="nav navbar-nav navbar-right nav-user">
                 <div class="dropdown">
                     <a class="user-name-box dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <img src="{{ asset('storage/cover/' . Auth::user()->avatar) }}">&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }}
+                        <img
+                            src="{{ asset('storage/cover/' . Auth::user()->avatar) }}">&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>

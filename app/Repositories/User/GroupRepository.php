@@ -4,6 +4,7 @@ namespace App\Repositories\User;
 
 use App\Models\Group;
 use App\User;
+use DB;
 
 class GroupRepository implements GroupRepositoryImterface
 {
@@ -51,19 +52,23 @@ class GroupRepository implements GroupRepositoryImterface
     }
 
     /**
-     * * 選択されたグループに属すユーザーのメッセージを取得
+     * 選択されたグループに属すユーザーのメッセージを取得
      *
+     * @param $userId
      * @param $id
-     * @param $groupUsers
      * @return mixed
      */
-    public function fetchGroupUsersMessage($id, $groupUsers)
+    public function fetchGroupUsersMessages($id)
     {
-        foreach ($groupUsers as $gu) {
-            foreach($gu->chats as $guc) {
-                return $guc->where('group_id', $id)->get();
-            }
-        }
+        return DB::select('
+            select *
+            from `users`
+            inner join `chats`
+            on `chats`.`user_id` = `users`.`id`
+            where `chats`.`group_id` = ?
+            '
+            , [$id]
+        );
     }
 
     /**

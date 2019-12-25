@@ -19,11 +19,13 @@ class Group extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany(User::class);
     }
 
-    public function chats(){
+    public function chats()
+    {
         return $this->hasMany(Chat::class);
     }
 }

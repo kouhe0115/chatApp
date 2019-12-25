@@ -42,6 +42,7 @@
 
     .chat-group-form__field {
         margin-top: 30px;
+
         &:after {
             content: "";
             clear: both;
@@ -82,6 +83,7 @@
         line-height: 50px;
         font-size: 14px;
         border-bottom: 1px solid #ddd;
+
         &:after {
             content: "";
             clear: both;

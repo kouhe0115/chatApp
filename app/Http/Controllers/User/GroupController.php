@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
-use App\User;
+use App\Repositories\User\GroupRepositoryImterface;
 use App\Http\Controllers\Controller;
-use App\Repositories\User\GroupRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,12 +13,12 @@ class GroupController extends Controller
 
     /**
      * GroupController constructor.
-     * @param GroupRepository $groupRepository
+     * @param GroupRepositoryImterface $groupRepository
      */
-    public function __construct(GroupRepository $groupRepository)
+    public function __construct(GroupRepositoryImterface $groupRepository)
     {
         $this->middleware('auth');
-        $this->groupRepository =  $groupRepository;
+        $this->groupRepository = $groupRepository;
     }
 
     /**
@@ -41,9 +40,9 @@ class GroupController extends Controller
     {
         $groups = $this->groupRepository->fetchAllGroupByUserId(Auth::id());
         $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
-        $groupUserChat = $this->groupRepository->fetchGroupUsersMessage($id, $groupUsers);
+        $groupUserChat = $this->groupRepository->fetchGroupUsersMessages($id);
 
-        return view('User.Group.show', compact('groupUserChat','groups', 'groupUsers'));
+        return view('User.Group.show', compact('groupUserChat', 'groups', 'groupUsers'));
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupController extends Controller
     {
         $inputs = $request->all();
         $userIds = array_unique(array_merge($inputs['user_id'], array(Auth::id())));
-//        dd(array_unique($userIds));
         $this->groupRepository->registerGroup($inputs, $userIds);
 
         return redirect()->action('User\GroupController@index');

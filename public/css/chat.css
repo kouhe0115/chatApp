@@ -304,3 +304,17 @@ p.kaiwa-text:last-child {
 .group__create__form__content--button {
   float: none !important;
 }
+.new__message {
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+  background: #bdc3d6;
+  opacity: 0.4;
+  text-align: center;
+}
+.new__message__text {
+  height: 30px;
+  margin: 0;
+  font-size: 1.5rem;
+  color: black;
+}

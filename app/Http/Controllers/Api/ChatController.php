@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
-use App\Models\Group;
-use App\Repositories\User\ChatRepositoryImterface;
-use App\Repositories\User\GroupRepositoryImterface;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,34 +12,40 @@ use DB;
 class ChatController extends Controller
 {
     /**
-     * @var ChatRepositoryImterface
+     * @var User
      */
-    private $chatRepository;
-
-    /**
-     * @var GroupRepositoryImterface
-     */
-    private $groupRepository;
-
     private $user;
 
     /**
      * ChatController constructor.
-     * @param ChatRepositoryImterface $chatRepository
-     * @param GroupRepositoryImterface $groupRepository
      * @param User $user
      */
-    public function __construct(ChatRepositoryImterface $chatRepository, GroupRepositoryImterface $groupRepository, User $user)
+    public function __construct(User $user)
     {
         $this->middleware('auth');
-        $this->chatRepository = $chatRepository;
-        $this->groupRepository = $groupRepository;
         $this->user = $user;
     }
 
+    /**
+     * ログイン中のユーザーのIDを取得
+     *
+     * @return int|null
+     */
+    public function getUserId()
+    {
+        return Auth::id();
+    }
+
+    /**
+     * 選択されたグループに属すユーザーのメッセージを取得
+     *
+     * @param Request $request
+     * @param $id
+     * @return false|string
+     */
     public function show(Request $request, $id)
     {
-        $messageId  = $request->input('message_id');
+        $messageId = $request->input('message_id');
 
         $a = DB::select('
             select *
@@ -54,7 +57,7 @@ class ChatController extends Controller
             , [$id, $messageId]
         );
 
-        foreach ($a as $key => $ai) {
+        foreach ($a as $ai) {
             $ai->avatar = asset('storage/cover/' . $ai->avatar);
         }
 
@@ -62,6 +65,8 @@ class ChatController extends Controller
     }
 
     /**
+     * グループ作成機能
+     *
      * @param Request $request
      * @param $id
      * @return false|string
@@ -72,18 +77,19 @@ class ChatController extends Controller
         $ins = Chat::create([
             'user_id' => Auth::id(),
             'group_id' => $id,
-            'message'   => $request->input('message'),
+            'message' => $request->input('message'),
         ]);
 
         $ins->user->avatar = asset('storage/cover/' . $ins->user->avatar);
         return response()->json($ins);
     }
 
-    public function getUserId()
-    {
-        return Auth::id();
-    }
-
+    /**
+     * グループ作成時のユーザーの検索機能
+     *
+     * @param Request $request
+     * @return false|string
+     */
     public function getSearchUsers(Request $request)
     {
         $input = $request->input('word');

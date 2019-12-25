@@ -22,11 +22,8 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
     Route::post('/group/store', 'GroupController@store')->name('group.store');
 });
 
-    Route::get('/group/{id}/chat/store', 'User\GroupController@show');
-    Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
-
-    Route::get('/group/{id}/chat/show', 'Api\ChatController@show');
-
-    Route::get('/user/id', 'Api\ChatController@getUserId');
-
-    Route::get('/users', 'Api\ChatController@getSearchUsers');
+Route::get('/group/{id}/chat/store', 'Api\GroupController@show');
+Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
+Route::get('/group/{id}/chat/show', 'Api\ChatController@show');
+Route::get('/user/id', 'Api\ChatController@getUserId');
+Route::get('/users', 'Api\ChatController@getSearchUsers');
