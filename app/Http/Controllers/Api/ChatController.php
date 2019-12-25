@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
+use App\Models\Group;
 use App\Repositories\User\ChatRepositoryImterface;
 use App\Repositories\User\GroupRepositoryImterface;
 use App\User;
@@ -41,14 +42,22 @@ class ChatController extends Controller
     public function show(Request $request, $id)
     {
         $messageId  = $request->input('message_id');
+
         $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
 
         $a = [];
+
         foreach ($groupUsers as $gu) {
             foreach($gu->chats as $guc) {
-                return $a =  $guc->where('group_id', $id)->where('id', '>', $messageId)->with('user')->get();
+               $a = $guc->where('group_id', $id)->where('id', '>', $messageId)->get();
             }
         }
+
+
+        foreach ($a as $key => $ai) {
+            $ai['user']['avatar'] = asset('storage/cover/' . $ai['user']['avatar']);
+        }
+
         return $a->toJson();
     }
 
@@ -59,12 +68,14 @@ class ChatController extends Controller
      */
     public function store(Request $request, $id)
     {
+
         $ins = Chat::create([
             'user_id' => Auth::id(),
             'group_id' => $id,
             'message'   => $request->input('message'),
         ]);
 
+        $ins->user->avatar = asset('storage/cover/' . $ins->user->avatar);
         return response()->json($ins);
     }
 
@@ -77,7 +88,14 @@ class ChatController extends Controller
     {
         $input = $request->input('word');
         $users = $this->user->where('name', 'LIKE', "%{$input}%")->get();
-        return $users->toJson();
+
+        $us = $users->toArray();
+
+        foreach ($us as $key => $u) {
+            $us[$key]['avatar'] = asset('storage/cover/' . $u['avatar']);
+        }
+
+        return json_encode($us);
     }
 }
 

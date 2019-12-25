@@ -61,7 +61,7 @@ class GroupRepository implements GroupRepositoryImterface
     {
         foreach ($groupUsers as $gu) {
             foreach($gu->chats as $guc) {
-                return $guc->where('group_id', $id)->with('user')->get();
+                return $guc->where('group_id', $id)->get();
             }
         }
     }

@@ -45,7 +45,7 @@
                     @if($guc->user_id === Auth::id())
                         <div class="kaiwa auth__user" data_id = "{{ $guc->id }}">
                             <figure class="kaiwa-img-left">
-                                <img src="{{ $guc->user->avatar }}" alt="no-img2" class="user__image">
+                                <img src="{{ asset('storage/cover/' . $guc->user->avatar) }}" alt="no-img2" class="user__image">
                             </figure>
                             <div class="kaiwa-text-right">
                                 <p class="kaiwa-text">
@@ -56,9 +56,7 @@
                     @else
                         <div class="kaiwa" data_id = "{{ $guc->id }}">
                             <figure class="kaiwa-img-right">
-                                <img src="{{ $guc->user->avatar }}" alt="no-img2">
-                                <figcaption class="kaiwa-img-description">
-                                </figcaption>
+                                <img src="{{ asset('storage/cover/' . $guc->user->avatar) }}" alt="no-img2" class="user__image">
                             </figure>
                             <div class="kaiwa-text-left">
                                 <p class="kaiwa-text">

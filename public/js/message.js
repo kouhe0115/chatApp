@@ -89,7 +89,7 @@ $(function () {
             dataType: 'json',
 
             success: function (data) {
-                let src = $('.user__image').attr('src');
+                let src = data.user.avatar;
                 let html = postbuildHTML(data, src);
                 $('.chat__area__content').append(html);
                 $('.chat__form--input').val('');
