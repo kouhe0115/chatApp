@@ -10,6 +10,7 @@ use App\Repositories\User\GroupRepositoryImterface;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class ChatController extends Controller
 {
@@ -43,22 +44,21 @@ class ChatController extends Controller
     {
         $messageId  = $request->input('message_id');
 
-        $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
-
-        $a = [];
-
-        foreach ($groupUsers as $gu) {
-            foreach($gu->chats as $guc) {
-               $a = $guc->where('group_id', $id)->where('id', '>', $messageId)->get();
-            }
-        }
-
+        $a = DB::select('
+            select *
+            from `users`
+            inner join `chats`
+            on `chats`.`user_id` = `users`.`id`
+            where `chats`.`group_id` = ?
+            and `chats`.`id` > ?'
+            , [$id, $messageId]
+        );
 
         foreach ($a as $key => $ai) {
-            $ai['user']['avatar'] = asset('storage/cover/' . $ai['user']['avatar']);
+            $ai->avatar = asset('storage/cover/' . $ai->avatar);
         }
 
-        return $a->toJson();
+        return json_encode($a);
     }
 
     /**

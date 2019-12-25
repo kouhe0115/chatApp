@@ -20,7 +20,7 @@ $(function () {
     function lordbuildHTML(data) {
         let html = `<div class="kaiwa" data_id = "${ data.id }">
                         <figure class="kaiwa-img-right">
-                            <img src="${data.user.avatar}" alt="no-img2">
+                            <img src="${data.avatar}" alt="no-img2">
                             <figcaption class="kaiwa-img-description">
                             </figcaption>
                         </figure>
@@ -89,7 +89,7 @@ $(function () {
             dataType: 'json',
 
             success: function (data) {
-                let src = data.user.avatar;
+                let src = data.avatar;
                 let html = postbuildHTML(data, src);
                 $('.chat__area__content').append(html);
                 $('.chat__form--input').val('');
