@@ -39,10 +39,11 @@ class GroupController extends Controller
     public function show($id)
     {
         $groups = $this->groupRepository->fetchAllGroupByUserId(Auth::id());
+        $groupName = $groups->find($id)->name;
         $groupUsers = $this->groupRepository->fetchGroupUsersByGroupId($id);
         $groupUserChat = $this->groupRepository->fetchGroupUsersMessages($id);
 
-        return view('User.Group.show', compact('groupUserChat', 'groups', 'groupUsers'));
+        return view('User.Group.show', compact('groups', 'groupName', 'groupUsers', 'groupUserChat'));
     }
 
     /**

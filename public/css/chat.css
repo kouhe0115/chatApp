@@ -35,7 +35,7 @@ html, body {
   color: white;
 }
 .chat__area__content {
-  height: calc(100% - 100px);
+  height: calc(100% - 100px - 80px);
   overflow: scroll;
   padding: 50px 50px 100px;
 }

@@ -27,13 +27,12 @@
 
     <div class="chat__area">
         <div class="chat__area__header">
-            <p class="chat__area__header--group__name">Group Name : {{ $group->name }}</p>
+            <p class="chat__area__header--group__name">Group Name : {{ $groupName }}</p>
 
             <p class="chat__area__header--group__member">Group Member :
                 @foreach($groupUsers as $user)
-                    {{ $user->name }}
+                    {{ $user->name }} /
                 @endforeach
-
             </p>
 
         </div>

@@ -34,8 +34,7 @@ $(function () {
     }
 
     function newMessageHtml(data) {
-        let html = `<p class="new__message__text">${data.message}</p>`
-        return html;
+        return `<p class="new__message__text">${data.message}</p>`
     }
 
     function scroll_view() {

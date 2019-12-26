@@ -17,7 +17,10 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-//Route::post('store', 'Api\ChatController@store')->name('api.store');
-//Route::post('/group/{id}/chat/store', 'Api\ChatController@store')->name('api.store');
-
-//Route::get('/user/id', 'Api\ChatController@getUserId');
+//Route::group(['prefix' => '/', 'Api.', 'namespace' => 'Api'], function () {
+//    Route::get('/group/{id}/chat/store', 'ChatController@show');
+//    Route::post('/group/{id}/chat/store', 'ChatController@store')->name('api.store');
+//    Route::get('/group/{id}/chat/show', 'ChatController@show');
+//    Route::get('/user/id', 'ChatController@getUserId');
+//    Route::get('/users', 'ChatController@getSearchUsers');
+//});

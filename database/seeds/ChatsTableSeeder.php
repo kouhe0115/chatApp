@@ -11,6 +11,6 @@ class ChatsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Chat::class, 10000)->create();
+//        factory(App\Models\Chat::class, 10000)->create();
     }
 }

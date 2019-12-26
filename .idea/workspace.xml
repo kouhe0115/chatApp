@@ -3,20 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ChatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/User/GroupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/User/GroupRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/User/GroupRepositoryImterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/User/GroupRepositoryImterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ChatsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChatsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/GroupUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/GroupUserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/GroupsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/GroupsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/scss/chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/chat.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/scss/user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/user.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/User/Group/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/Group/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/common/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/common/user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,11 +239,11 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1576989536369" />
-    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup" timestamp="1577286939566">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1577339604048">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1577286939566" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1577265045471" />
+    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1577291329538" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1577339604048" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.959@0.23.1680.959" timestamp="1577162470882" />
   </component>
 </project>

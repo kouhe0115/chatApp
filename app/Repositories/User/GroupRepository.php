@@ -37,6 +37,7 @@ class GroupRepository implements GroupRepositoryImterface
      */
     public function fetchAllGroupByUserId($id)
     {
+//        dd( $this->user->find($id)->groups()->get());
         return $this->user->find($id)->groups()->get();
     }
 
@@ -54,7 +55,6 @@ class GroupRepository implements GroupRepositoryImterface
     /**
      * 選択されたグループに属すユーザーのメッセージを取得
      *
-     * @param $userId
      * @param $id
      * @return mixed
      */
