@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="" />
+    <list default="true" id="f07bc211-0994-4890-8c9c-227645b17793" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,8 +117,7 @@
       <path value="$PROJECT_DIR$/vendor/panique/laravel-sass" />
       <path value="$PROJECT_DIR$/vendor/leafo/scssphp" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
-      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
-      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VBW2RMFu7166FPz97uxUMyp3Rm" />
